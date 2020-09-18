@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Polyglot Microfrontends</title>
   <meta name="importmap-type" content="systemjs-importmap" />
-  <script type="systemjs-importmap" src="https://storage.googleapis.com/polyglot.microfrontends.app/importmap.json"></script>
+  <!-- <script type="systemjs-importmap"
+    src="https://storage.googleapis.com/polyglot.microfrontends.app/importmap.json"></script> -->
+
+  <!-- {
+      "imports": {
+        "@polyglot-mf/root-config": "http://localhost:9000/polyglot-mf-root-config.js"
+      }
+    } -->
+
   <% if (isLocal) { %>
   <script type="systemjs-importmap">
     {
       "imports": {
-        "@polyglot-mf/root-config": "http://localhost:9000/polyglot-mf-root-config.js"
+        "@polyglot-mf/root-config": "http://localhost:9000/polyglot-mf-root-config.js",
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.3.4/lib/system/single-spa.min.js",
+        "react": "https://cdn.jsdelivr.net/npm/react@16.12.0/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.12.0/umd/react-dom.production.min.js",
+        "@polyglot-mf/navbar": "https://polyglot.microfrontends.app/navbar/656315650d01fc2df3eaf223fe43da692995757a/polyglot-mf-navbar.js",
+        "@polyglot-mf/styleguide": "https://polyglot.microfrontends.app/styleguide/9b2fe043870a9a7bf750ba77ab36472f15bda00e/polyglot-mf-styleguide.js",
+        "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js",
+        "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.1.5/dist/vue-router.min.js",
+        "@polyglot-mf/clients": "https://polyglot.microfrontends.app/clients/3268690480d8049fce63aec8c34cbd82a06872b6/js/app.js",
+        "@polyglot-mf/account-settings": "https://polyglot.microfrontends.app/account-settings/379b52175c9f274743f7e469a7e3477b6ed6b927/polyglot-mf-account-settings.js",
+        "single-spa-angularjs": "https://cdn.jsdelivr.net/npm/single-spa-angularjs@3.2.0/lib/single-spa-angularjs.js",
+        "@polyglot-mf/navbar/": "https://polyglot.microfrontends.app/navbar/656315650d01fc2df3eaf223fe43da692995757a/",
+        "@polyglot-mf/root-config/": "https://polyglot.microfrontends.app/root-config/1f095f65577e6cd90d195b2129a20c628db32686/",
+        "@polyglot-mf/styleguide/": "https://polyglot.microfrontends.app/styleguide/9b2fe043870a9a7bf750ba77ab36472f15bda00e/",
+        "@polyglot-mf/clients/": "https://polyglot.microfrontends.app/clients/3268690480d8049fce63aec8c34cbd82a06872b6/js/",
+        "sandbox-web":"http://localhost:8080/sandbox/main.single-spa.js",
+        "sandbox-web/":"http://localhost:8080/sandbox/",
+        "referral-manager":"http://localhost:4201/main.js"
       }
     }
   </script>
@@ -20,12 +46,18 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-register.min.js"></script>
 </head>
+
 <body>
   <script>
     System.import('@polyglot-mf/root-config');
     System.import('@polyglot-mf/styleguide');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+  <!-- <div id="single-spa-application:@polyglot-mf/navbar"></div>
+  <div id="single-spa-application:referral-manager"></div> -->
+  <div id="single-spa-application:referral-manager"></div>
 </body>
+
 </html>

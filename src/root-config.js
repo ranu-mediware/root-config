@@ -18,6 +18,12 @@ registerApplication({
   activeWhen: "/settings",
 });
 
+registerApplication({
+  name: "referral-manager",
+  app: () => System.import("referral-manager"),
+  activeWhen: "/referral-manager",
+});
+
 start();
 
 // A lot of angularjs libs are compiled to UMD, and if you don't process them with webpack
